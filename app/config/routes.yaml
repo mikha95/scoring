@@ -1,0 +1,16 @@
+#controllers:
+#    resource:
+#        path: ../src/Controller/
+#        namespace: App\Controller
+#    type: attribute
+app.scoring.create:
+    path: /create
+    controller: App\Controller\ScoringController::create
+
+app.scoring.edit:
+    path: /edit/{id}
+    controller: App\Controller\ScoringController::edit
+
+app.scoring.list:
+    path: /list
+    controller: App\Controller\ScoringController::list
