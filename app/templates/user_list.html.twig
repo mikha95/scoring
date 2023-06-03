@@ -1,0 +1,44 @@
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Телефон</td>
+            <td>Email</td>
+            <td>Образование</td>
+            <td>Согласие</td>
+            <td>Баллы за оператора</td>
+            <td>Баллы за домен</td>
+            <td>Баллы за образование</td>
+            <td>Баллы за согласие</td>
+            <td>Сумма</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in userList %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.educationLabel }}</td>
+            <td><input type="checkbox" disabled="disabled" {% if user.agree == 1 %}checked=""{% endif %}></td>
+            <td>{{ user.phoneScore }}</td>
+            <td>{{ user.emailScore }}</td>
+            <td>{{ user.educationScore }}</td>
+            <td>{{ user.agreeScore }}</td>
+            <td>{{ user.sum }}</td>
+            <td><a href="{{ path('app.scoring.edit', {id: user.id}) }}">Редактировать</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% if previous >= 0 %}
+    <a href="{{ path('app.scoring.list', { page: previous }) }}">Предыдущая страница</a>
+{% endif %}
+{% if next < userList|length %}
+    <a href="{{ path('app.scoring.list', { page: next }) }}">Следующая страница</a>
+{% endif %}
