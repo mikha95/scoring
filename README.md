@@ -17,3 +17,5 @@
 * Список клиентов: `/list`
 
 Запустить тесты: `symfony php bin/phpunit`
+
+Code-style по PSR при помощи `https://cs.symfony.com/`
